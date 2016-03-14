@@ -1,12 +1,14 @@
-
+import java.util.Random;
 import java.util.Scanner;
-
-
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+import java.math.*;
+ 
 public class MergeSort_2 {
 	
 	static int array_new[]=null;
 		
-		
+	@Test	
 	static int[] merge(int leftarray[],int rightarray[],int array[])
 	{
 		int left=leftarray.length;
@@ -44,7 +46,7 @@ public class MergeSort_2 {
 		
 		return array;
 	}
-	
+		@Test
 		static void merge_sorting(int array[])
 		{
 			int arrayleft[] = null;
@@ -76,21 +78,24 @@ public class MergeSort_2 {
 			
 		}
 				
-	
+	@Test
 		public static void main(String a[])
 		{
 			//int array[]={4,2,1,6,8,0,3,5};
 			 int array[]=null;
+			 Random rand=new Random();
+			 
 			 System.out.print("Enter Size of the array");
 			   Scanner sc=new Scanner(System.in);
 			   int val=sc.nextInt();
 			   array = new int[val];
 			   for(int i=0;i<val;i++)
 			   {
-				    System.out.println("Enter Number"+(i+1));
-			   		array[i]=sc.nextInt();
+				    //System.out.println("Enter Number"+(i+1));
+			   		//array[i]=sc.nextInt();
+				   array[i]=rand.nextInt(Integer.MAX_VALUE);
 			   }
-			   
+			   long startTime = System.currentTimeMillis();
 			   
 			merge_sorting(array);
 			int len=array_new.length;
@@ -99,6 +104,10 @@ public class MergeSort_2 {
 			{
 				System.out.print(array_new[l]+" ");
 			}
+			
+			long endTime   = System.currentTimeMillis();
+			long totalTime = endTime - startTime;
+			System.out.println("Time taken"+totalTime);
 			
 		}		
 }
